@@ -1,0 +1,48 @@
+package userOperations;
+
+import java.util.Scanner;
+
+import Logic.ListOfAvailableFiles;
+
+public class Welcome {
+	
+	//private static Scanner sc;
+	Welcome wlcm = new Welcome();
+	ListOfAvailableFiles lf = new ListOfAvailableFiles();
+
+	public void displayOptions() {
+		System.out.println(
+				"Enter 1 to view all available files\r\n" + 
+				"Enter 2 to add a file\r\n" + 
+				"Enter 3 to delete a file\r\n" + 
+				"Enter 4 to search a file\r\n" + 
+				"Enter 5 to exit from console");
+	}
+	
+	public void displayAvailableFiles() throws Exception {
+		System.out.println("Available Files are : ");
+        lf.showAllAvailableFiles();
+	}
+	
+	
+	public void performCasesOnUserInput() {
+		//Welcome wlcm = new Welcome();
+		
+			wlcm.displayOptions();
+			Scanner sc = new Scanner(System.in);
+	        String userInput = sc.nextLine();
+	        //sc.close();
+	        if(userInput=="1") {
+	        	try {
+					wlcm.displayAvailableFiles();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
+	        }
+			
+        } 
+	
+}
+  
+

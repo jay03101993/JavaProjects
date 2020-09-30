@@ -1,0 +1,28 @@
+package userOperations;
+
+import java.io.File;
+
+public class ListOfAvailableFiles {
+	
+	public void showAllAvailableFiles() throws Exception {
+		
+		String path = System.getProperty("user.dir")+"FileDirectory";
+		File directory = new File(path);
+		String[] fileList = directory.list();
+		
+		/*if (fileList == null) {
+	         System.out.println("No files");
+		}*/
+		
+			for (String filename : fileList) {
+	            System.out.println(filename);
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+      ListOfAvailableFiles lf = new ListOfAvailableFiles();
+      lf.showAllAvailableFiles();
+	}
+
+}

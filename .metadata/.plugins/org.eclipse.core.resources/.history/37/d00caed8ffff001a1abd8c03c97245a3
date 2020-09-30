@@ -1,0 +1,57 @@
+package userOperations;
+
+import java.io.Console;
+import java.util.Scanner;
+
+public class Welcome {
+	
+	public static Console console = System.console();
+	
+	public void displayOptions() {
+		console.writer().println("Enter 1 to view all available files\r\n" + 
+				"Enter 2 to add a file\r\n" + 
+				"Enter 3 to delete a file\r\n" + 
+				"Enter 4 to search a file\r\n" + 
+				"Enter 5 to exit from console");
+	}
+	
+
+	public static void main(String[] args) {
+		
+		try {
+		Welcome wlcm = new Welcome();
+		console.writer().println("**************************************************\r\n" + 
+		"Welcome to Cubic File Management System\r\n" + 
+		"**************************************************");
+		console.writer().println("Here's the list of File Operations you can perform");
+		wlcm.displayOptions();
+		Scanner sc = new Scanner(System.in);
+        String userInput = sc.nextLine();
+		
+		
+		switch(userInput){
+			case "1" :
+				
+				ListOfAvailableFiles laf = new ListOfAvailableFiles();
+				System.out.println("Files are : "+  laf.showAllAvailableFiles());
+			break;
+			default:
+				console.writer().println("Its a wrong input ! Please select from below");
+				wlcm.displayOptions();
+				Scanner sc1 = new Scanner(System.in);
+		        userInput = sc.nextLine();
+		        
+			
+		}
+		
+		
+		
+	}catch(Exception e) {
+		console.writer().println(e.getMessage());
+	}
+
+	}
+}
+	
+  
+

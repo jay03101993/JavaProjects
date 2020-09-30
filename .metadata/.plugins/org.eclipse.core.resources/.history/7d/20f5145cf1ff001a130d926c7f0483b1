@@ -1,0 +1,34 @@
+package userOperations;
+
+import java.io.Console;
+
+public class Welcome {
+	
+	static Console console = System.console();
+	
+	public static void displayOptions() {
+		console.writer().println("Enter 1 to view all available files\r\n" + 
+				"Enter 2 to add a file\r\n" + 
+				"Enter 3 to delete a file\r\n" + 
+				"Enter 4 to search a file\r\n" + 
+				"Enter 5 to exit from console");
+	}
+	
+
+	public static void main(String[] args) {
+		
+		ListOfAvailableFiles laf = new ListOfAvailableFiles();
+		
+		try {
+		console.writer().println("**************************************************\r\n" + 
+		"Welcome to Cubic File Management System\r\n" + 
+		"**************************************************");
+		//console.writer().println("**********************||*************************");
+		console.writer().println("Here's the list of File Operations you can perform");
+		displayOptions();
+	}catch(Exception e) {
+		e.getMessage();
+	}
+	
+  }
+}

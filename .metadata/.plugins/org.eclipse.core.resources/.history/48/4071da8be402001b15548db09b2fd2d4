@@ -1,0 +1,64 @@
+package userOperations;
+
+import java.util.Scanner;
+
+import Logic.ListOfAvailableFiles;
+
+public class Welcome {
+	
+	private static Scanner sc;
+
+
+	public void displayOptions() {
+		System.out.println("Enter 1 to view all available files\r\n" + 
+				"Enter 2 to add a file\r\n" + 
+				"Enter 3 to delete a file\r\n" + 
+				"Enter 4 to search a file\r\n" + 
+				"Enter 5 to exit from console");
+	}
+	
+
+	public static void main(String[] args) {
+		
+		try {
+		Welcome wlcm = new Welcome();
+		System.out.println("**************************************************\r\n" + 
+		"Welcome to Cubic File Management System\r\n" + 
+		"**************************************************");
+		System.out.println("Here's the list of File Operations you can perform");
+		wlcm.displayOptions();
+		Scanner sc = new Scanner(System.in);
+        String userInput = sc.nextLine();
+		
+		
+		switch(userInput){
+			case "1" :
+				try {
+						ListOfAvailableFiles lf = new ListOfAvailableFiles();
+						System.out.println("Available Files are : ");
+				        lf.showAllAvailableFiles();
+				      }catch(NullPointerException e) {
+				    	  System.out.println("Exception while fetching file, returned "+e.getMessage());
+				      }
+				
+					
+				
+			break;
+			default:
+				System.out.println("Its a wrong input ! Please select from below");
+				wlcm.displayOptions();
+				Scanner sc1 = new Scanner(System.in);
+		        userInput = sc1.nextLine();
+		}
+		
+		
+		
+	}catch(Exception e) {
+		System.out.println(e.getMessage());
+	}
+
+	}
+}
+	
+  
+
