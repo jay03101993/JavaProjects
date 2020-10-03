@@ -1,0 +1,107 @@
+package userOperations;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import businessLogic.AddNewFile;
+import businessLogic.DeleteFile;
+import businessLogic.ListOfAvailableFiles;
+import businessLogic.SearchForFile;
+
+public class AllOperations {
+
+	// private static Scanner sc;
+	//static String[] allAddedFiles = null;
+	static AllOperations wlcm = new AllOperations();
+	static ListOfAvailableFiles lf = new ListOfAvailableFiles();
+	static AddNewFile adnf = new AddNewFile();
+	static SearchForFile sf = new SearchForFile();
+	// static DeleteFile df = new DeleteFile();
+
+	public static void displayUserOptions() {
+		System.out.println("********************************************************" + "\r\n"
+				+ "Enter 1 to view all available files\r\n" + "Enter 2 to add a file\r\n"
+				+ "Enter 3 to delete a file\r\n" + "Enter 4 to search a file\r\n" + "Enter 5 to exit from console");
+	}
+
+	public static void displayAvailableFiles() {
+
+		try {
+			lf.showAllAvailableFiles();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error Occured " + e.getMessage());
+		}
+	}
+
+	public static void addNewFileByUser(String FileName) {
+		try {
+			adnf.addFile(FileName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error occured " + e.getMessage());
+		}
+	}
+
+	public static void deleteFileByUser(String fileName) {
+		DeleteFile df = new DeleteFile();
+		df.deleteFile(fileName);
+	}
+	
+	public static void searchFileByUserInput(String fileToSearch){
+		sf.searchFile(fileToSearch);
+	}
+
+	public void performCasesOnUserInput() {
+
+		displayUserOptions();
+		Scanner sc = new Scanner(System.in);
+		String userInput = sc.nextLine();
+		// sc.close();
+		if (userInput.equals("1")) {
+			displayAvailableFiles();
+			// displayUserOptions();
+			performCasesOnUserInput();
+		} else if (userInput.equals("2")) {
+			Scanner sc1 = new Scanner(System.in);
+			System.out.println("Enter the file name that you want to create : "
+					+ "\r\n**Note : As of now any text, special character or even speces are allowed as file name. "
+					+ "\r\n Somehow it will be restricted in later updates of the app");
+			String fileNameUserInput = sc1.nextLine();
+			if (fileNameUserInput.contains(".")) {
+				System.out.println("Files are of .txt type by default,"
+						+ "\r\n you are not required to enter any type format(i.e .txt, .docx, .pdf etc)");
+				performCasesOnUserInput();
+			} else {
+				addNewFileByUser(fileNameUserInput);
+				performCasesOnUserInput();
+			}
+		} else if (userInput.equals("3")) {
+			Scanner sc2 = new Scanner(System.in);
+			System.out.println("Enter the file name you want to delete : ");
+			String fileToDeleteUserInput = sc2.nextLine();
+			if (fileToDeleteUserInput.contains(".")) {
+				System.out.println("Files are of .txt type by default,"
+						+ "\r\n you are not required to enter any type format(i.e .txt, .docx, .pdf etc)");
+				performCasesOnUserInput();
+			} else {
+				deleteFileByUser(fileToDeleteUserInput);
+				performCasesOnUserInput();
+			}
+
+		}
+		else if(userInput.equals("4")){
+			Scanner sc3 = new Scanner(System.in);
+			System.out.println("Enter the file name you want to search : ");
+			String searchFile = sc3.nextLine();
+			searchFileByUserInput(searchFile);
+		}
+
+		else {
+			System.out.println("Wrong Input !! Please try again");
+			performCasesOnUserInput();
+		}
+
+	}
+
+}

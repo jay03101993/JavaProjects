@@ -1,0 +1,14 @@
+package businessLogic;
+
+import java.io.File;
+
+public class SearchForFile{
+
+	public void searchFile(String FileName){
+		String path = System.getProperty("user.dir") + "\\FileDirectory";
+		File directory = new File(path);
+		String[] fileList = directory.list();
+	}
+	
+	
+}

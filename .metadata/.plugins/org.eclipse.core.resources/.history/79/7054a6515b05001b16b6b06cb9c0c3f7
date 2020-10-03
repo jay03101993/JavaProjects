@@ -1,0 +1,10 @@
+package businessLogic;
+
+public class SearchForFile extends ListOfAvailableFiles{
+
+	public void searchFile(String FileName){
+		if (Directory)
+	}
+	
+	
+}

@@ -1,0 +1,31 @@
+package businessLogic;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SearchForFile {
+	int count = 0;
+	String path = System.getProperty("user.dir") + "\\FileDirectory";
+	File directory = new File(path);
+	String[] fileList = directory.list();
+	List<String> allMatchedFiles = new ArrayList<String>();
+
+	public void searchFile(String searchFileName) {
+		for (String file : fileList) {
+			if (file.contains(searchFileName)) {
+				count = count + 1;
+				allMatchedFiles.add(file);
+			}
+		}
+		if (count > 0) {
+			System.out.println("Found " + count + "results ");
+			System.out.println("Matched Files are : ");
+			for (String matchFile : allMatchedFiles) {
+				System.out.println(matchFile);
+			}
+		} else {
+			System.out.println("No match found for " + searchFileName);
+		}
+	}
+}

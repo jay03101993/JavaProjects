@@ -1,0 +1,19 @@
+package userOperations;
+
+public class ExecuteOperations {
+	
+	public static final void greetingsMessage(){
+		System.out.println("********************************************************\r\n"+
+"Welcome to Cubic File Management System\r\n"+
+"@developer : Jayanta Acharjee\r\n"+
+"********************************************************");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      ExecuteOperations exec = new ExecuteOperations();
+      Welcome wlc = new Welcome();
+      wlc.performCasesOnUserInput();
+	}
+
+}

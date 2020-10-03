@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.io.Console"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.awt.DisplayMode"/>
 <fullyQualifiedTypeName name="userOperations.ListOfAvailableFiles"/>
+<fullyQualifiedTypeName name="businessLogic.AddNewFile"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="businessLogic.DeleteFile"/>
+<fullyQualifiedTypeName name="businessLogic.ListOfAvailableFiles"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="businessLogic.SearchForFile"/>
 </qualifiedTypeNameHistroy>

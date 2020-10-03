@@ -1,0 +1,26 @@
+package businessLogic;
+
+import java.io.File;
+import java.io.IOException;
+
+public class AddNewFile {
+	
+	public void addFile(String FileName) throws IOException{
+		//Scanner sc = new Scanner(System.in);
+		String path = System.getProperty("user.dir")+"//FileDirectory";
+		File FilePath = new File(path+"/"+FileName+".txt");
+		FilePath.createNewFile();
+	}
+	
+	
+	public static void main(String[] args) {
+		AddNewFile adn = new AddNewFile();
+		try {
+			adn.addFile("Demo");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
